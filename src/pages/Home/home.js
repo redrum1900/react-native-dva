@@ -11,10 +11,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const Home = ({ home, loading, dispatch }) => {
-  const { count } = home;
+const Home = ({ home, loading, dispatch, navigation }) => {
+  const { count = '' } = home;
   const onPress = () => {
-    dispatch({ type: 'home/addCount' });
+    dispatch({ type: 'home/count', payload: { num: 1 } });
+  };
+
+  const onPress2 = () => {
+    dispatch({ type: 'home/count', payload: { num: -1 } });
+  };
+
+  const toHome2 = () => {
+    navigation.navigate('Home2');
   };
 
   return (
@@ -23,10 +31,15 @@ const Home = ({ home, loading, dispatch }) => {
         {count}
       </Text>
       <TouchableOpacity onPress={onPress}>
-        <Text>点我试试</Text>
+        <Text>点我多</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={onPress2}>
+        <Text>点我少</Text>
       </TouchableOpacity>
 
-      <Text>Shake your phone to open the developer menu.</Text>
+      <TouchableOpacity onPress={toHome2}>
+        <Text>前往Home2</Text>
+      </TouchableOpacity>
     </View>
   );
 };

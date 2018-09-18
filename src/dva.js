@@ -1,10 +1,12 @@
 import React from 'react';
 import { create } from 'dva-core';
 import { Provider, connect } from 'react-redux';
+import createLoading from 'dva-loading';
 
 export { connect };
 export default options => {
   const app = create(options);
+  app.use(createLoading());
   if (!global.registered) {
     options.models.forEach(model => app.model(model));
   }

@@ -4,9 +4,10 @@ export default {
     count: 0,
   },
   effects: {
-    *addCount({ payload }, { call, put, select }) {
+    *count({ payload }, { call, put, select }) {
       let count = yield select(state => state.home.count);
-      count += 1;
+      const { num = 1 } = payload;
+      count += num;
       yield put({
         type: 'updateState',
         payload: { count },
