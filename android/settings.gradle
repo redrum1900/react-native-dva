@@ -1,0 +1,3 @@
+rootProject.name = 'reactdva'
+
+include ':app'
