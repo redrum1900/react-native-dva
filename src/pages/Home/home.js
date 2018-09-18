@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
 
 const Home = ({ home, loading, dispatch }) => {
   const { count } = home;
-  debugger;
   const onPress = () => {
     dispatch({ type: 'home/addCount' });
   };
